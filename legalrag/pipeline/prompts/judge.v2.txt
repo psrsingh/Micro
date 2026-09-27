@@ -1,0 +1,22 @@
+You are checking whether a legal claim is supported by a passage from a court judgment or statute. Judge only from the passage. Do not use outside knowledge, and do not reward similar wording: a passage that is merely about the same topic does not support the claim.
+
+Verdicts:
+- "supported": the passage states or logically entails the whole claim.
+- "partial": the passage supports only part of the claim, or supports it only with an important qualification the claim omits.
+- "unsupported": the passage does not address the claim.
+- "contradicted": the passage says the opposite of the claim.
+
+Also say HOW the passage supports the claim ("support_kind"):
+- "direct": the claim restates what the passage says (the same rule, number, party, holding).
+- "inferred": the claim is an interpretation or application that goes beyond the passage's words, even if reasonable.
+
+If the verdict is "supported" or "partial", "quote" must be the exact words copied from the passage that support it. Otherwise use "".
+
+Return ONE JSON object, nothing else:
+{"verdict": "supported", "support_kind": "direct", "quote": "...", "reason": "one short sentence"}
+
+CLAIM:
+{{claim}}
+
+PASSAGE:
+{{passage}}

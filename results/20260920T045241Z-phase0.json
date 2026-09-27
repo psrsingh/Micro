@@ -1,0 +1,367 @@
+{
+  "kind": "phase0-smoke",
+  "timestamp": "20260920T045241Z",
+  "config_name": "phase0",
+  "config_hash": "cc5e4da9217c45d5",
+  "config": {
+    "name": "phase0",
+    "seed": 1234,
+    "embedding": {
+      "kind": "hash",
+      "model": "hash-bow-v1",
+      "dim": 384
+    },
+    "llm": {
+      "provider": "fake",
+      "model": "fake-v1",
+      "temperature": 0.0,
+      "seed": 1234,
+      "max_tokens": 1024,
+      "base_url": null,
+      "effort": "low",
+      "timeout_s": 120.0
+    },
+    "ingest": {
+      "corpus_dir": "legalrag/tests/fixtures/sample_corpus",
+      "chunk_target_tokens": 200,
+      "chunk_max_tokens": 400,
+      "chunk_overlap_tokens": 40
+    },
+    "retrieval": {
+      "lexical_top_k": 100,
+      "dense_top_k": 100,
+      "fused_top_k": 50,
+      "rrf_k": 60
+    },
+    "rerank": {
+      "kind": "lexical_fake",
+      "model": "lexical-overlap-v1",
+      "keep": 10,
+      "boost_section_match": 0.15,
+      "boost_case_name_match": 0.15,
+      "boost_holding_reasoning": 0.1,
+      "penalty_arguments": 0.1
+    },
+    "verify": {
+      "kind": "fake",
+      "enabled_checks": [
+        "authority",
+        "citation_metadata",
+        "statute",
+        "claim_support",
+        "temporal"
+      ],
+      "min_verified_per_claim": 1
+    },
+    "pipeline": {
+      "max_claims": 12
+    }
+  },
+  "corpus_sha": "67dd48ace1714cb7",
+  "model_info": {
+    "llm": {
+      "provider": "fake",
+      "model": "fake-v1",
+      "temperature": 0.0,
+      "seed": 1234
+    },
+    "embedding": {
+      "kind": "hash",
+      "model": "hash-bow-v1",
+      "dim": 384
+    },
+    "reranker": {
+      "kind": "lexical_fake",
+      "model": "lexical-overlap-v1"
+    },
+    "verifier": {
+      "kind": "fake",
+      "enabled_checks": [
+        "authority",
+        "citation_metadata",
+        "statute",
+        "claim_support",
+        "temporal"
+      ]
+    }
+  },
+  "notes": [
+    "PHASE 0 PLUMBING RUN. Fake LLM, hashed embeddings, lexical stand-in reranker and fake verifier. Nothing here measures retrieval or verification quality.",
+    "Document and case names in this corpus are synthetic fixtures, not real Indian law."
+  ],
+  "summary": {
+    "n_queries": 6,
+    "answered": 5,
+    "abstained": 1,
+    "errors": 0,
+    "mean_latency_ms": {
+      "decompose": 0.23,
+      "draft": 0.44,
+      "final": 0.16,
+      "query_analysis": 0.27,
+      "rerank": 0.37,
+      "retrieval": 7.84,
+      "total": 9.47,
+      "verify": 0.07
+    }
+  },
+  "records": [
+    {
+      "run_id": 7,
+      "query": "How much notice must a landlord give before seeking eviction under Section 12 of the Sample Tenancy Act?",
+      "outcome": "answered",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 3,
+      "n_claims_surviving": 3,
+      "expected_title_fragment": "Asha Devi",
+      "expected_in_top10": true,
+      "top3": [
+        "Asha Devi v. Rajan Traders (SYNTHETIC)",
+        "Asha Devi v. Rajan Traders (SYNTHETIC)",
+        "Asha Devi v. Rajan Traders (SYNTHETIC)"
+      ],
+      "answer": [
+        {
+          "text": "Sample Tenancy Act, 2001, Section 12 - eviction - notice - a landlord must give thirty days' written notice before instituting eviction proceedings; oral notice is not sufficient.",
+          "claim_ids": [
+            1
+          ]
+        },
+        {
+          "text": "Section 12 of the Sample Tenancy Act, 2001 requires a written notice of thirty days.",
+          "claim_ids": [
+            2
+          ]
+        },
+        {
+          "text": "Eviction proceedings instituted without thirty days' written notice under Section 12 are not maintainable.",
+          "claim_ids": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": {
+        "query_analysis": 0.91,
+        "retrieval": 13.54,
+        "rerank": 0.59,
+        "draft": 1.08,
+        "decompose": 0.64,
+        "verify": 0.13,
+        "final": 0.44,
+        "total": 17.46
+      }
+    },
+    {
+      "run_id": 8,
+      "query": "Can a tenant sublet part of the premises without the landlord's written consent?",
+      "outcome": "answered",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 3,
+      "n_claims_surviving": 3,
+      "expected_title_fragment": "Mohan Lal",
+      "expected_in_top10": true,
+      "top3": [
+        "Sample Tenancy Act s.15",
+        "Mohan Lal v. Sunita Estates (SYNTHETIC)",
+        "Asha Devi v. Rajan Traders (SYNTHETIC)"
+      ],
+      "answer": [
+        {
+          "text": "A tenant shall not sublet the premises or any part of them without the prior written consent of the landlord.",
+          "claim_ids": [
+            1
+          ]
+        },
+        {
+          "text": "Section 15 requires the landlord's written consent to any subletting.",
+          "claim_ids": [
+            2
+          ]
+        },
+        {
+          "text": "Section 12 of the Sample Tenancy Act, 2001 requires a written notice of thirty days.",
+          "claim_ids": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": {
+        "query_analysis": 0.12,
+        "retrieval": 5.74,
+        "rerank": 0.3,
+        "draft": 0.3,
+        "decompose": 0.18,
+        "verify": 0.08,
+        "final": 0.12,
+        "total": 6.93
+      }
+    },
+    {
+      "run_id": 9,
+      "query": "What is the maximum security deposit a landlord may take from a tenant?",
+      "outcome": "answered",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 3,
+      "n_claims_surviving": 3,
+      "expected_title_fragment": "Kavita Rao",
+      "expected_in_top10": true,
+      "top3": [
+        "Sample Tenancy Act s.7",
+        "Sample Tenancy Act s.7",
+        "Kavita Rao v. Greenfield Housing Society (SYNTHETIC)"
+      ],
+      "answer": [
+        {
+          "text": "A landlord shall not demand or accept a security deposit exceeding two months' rent.",
+          "claim_ids": [
+            1
+          ]
+        },
+        {
+          "text": "A landlord shall not demand or accept a security deposit exceeding three months' rent.",
+          "claim_ids": [
+            2
+          ]
+        },
+        {
+          "text": "Section 7, as it stood in 2011, limited a security deposit to two months' rent.",
+          "claim_ids": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": {
+        "query_analysis": 0.14,
+        "retrieval": 6.09,
+        "rerank": 0.3,
+        "draft": 0.27,
+        "decompose": 0.17,
+        "verify": 0.07,
+        "final": 0.12,
+        "total": 7.24
+      }
+    },
+    {
+      "run_id": 10,
+      "query": "Is a manufacturer bound to repair a defective product during the warranty period?",
+      "outcome": "answered",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 3,
+      "n_claims_surviving": 3,
+      "expected_title_fragment": "Imran Sheikh",
+      "expected_in_top10": true,
+      "top3": [
+        "Imran Sheikh v. Orbit Appliances (SYNTHETIC)",
+        "Imran Sheikh v. Orbit Appliances (SYNTHETIC)",
+        "Rahul Menon v. Apex Electronics (SYNTHETIC)"
+      ],
+      "answer": [
+        {
+          "text": "Sample Consumer Protection Act, 2010, Section 3 - warranty - a manufacturer must repair or replace a defective product within the warranty period.",
+          "claim_ids": [
+            1
+          ]
+        },
+        {
+          "text": "Section 3 of the Sample Consumer Protection Act, 2010 implies a duty to repair or replace goods that are defective during the warranty period.",
+          "claim_ids": [
+            2
+          ]
+        },
+        {
+          "text": "Section 3 places the duty to repair on the manufacturer during the warranty period.",
+          "claim_ids": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": {
+        "query_analysis": 0.18,
+        "retrieval": 8.91,
+        "rerank": 0.34,
+        "draft": 0.29,
+        "decompose": 0.22,
+        "verify": 0.08,
+        "final": 0.15,
+        "total": 10.27
+      }
+    },
+    {
+      "run_id": 11,
+      "query": "Within what period must a consumer complaint be filed?",
+      "outcome": "answered",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 3,
+      "n_claims_surviving": 3,
+      "expected_title_fragment": "Prakash Nair",
+      "expected_in_top10": true,
+      "top3": [
+        "Prakash Nair v. Sunrise Motors (SYNTHETIC)",
+        "Imran Sheikh v. Orbit Appliances (SYNTHETIC)",
+        "Sample Consumer Protection Act s.9"
+      ],
+      "answer": [
+        {
+          "text": "Sample Consumer Protection Act, 2010, Section 9 - limitation - a complaint must be filed within two years of the cause of action; delay may be condoned on sufficient cause.",
+          "claim_ids": [
+            1
+          ]
+        },
+        {
+          "text": "Sample Consumer Protection Act, 2010, Section 3 - warranty - a manufacturer must repair or replace a defective product within the warranty period.",
+          "claim_ids": [
+            2
+          ]
+        },
+        {
+          "text": "A complaint shall be filed within two years from the date on which the cause of action arises.",
+          "claim_ids": [
+            3
+          ]
+        }
+      ],
+      "latency_ms": {
+        "query_analysis": 0.11,
+        "retrieval": 6.07,
+        "rerank": 0.37,
+        "draft": 0.34,
+        "decompose": 0.19,
+        "verify": 0.08,
+        "final": 0.11,
+        "total": 7.33
+      }
+    },
+    {
+      "run_id": 12,
+      "query": "What is the capital of France?",
+      "outcome": "abstained",
+      "error": null,
+      "n_candidates": 47,
+      "n_claims": 0,
+      "n_claims_surviving": 0,
+      "expected_title_fragment": null,
+      "expected_in_top10": null,
+      "top3": [
+        "Asha Devi v. Rajan Traders (SYNTHETIC)",
+        "Asha Devi v. Rajan Traders (SYNTHETIC)",
+        "Mohan Lal v. Sunita Estates (SYNTHETIC)"
+      ],
+      "answer": [],
+      "latency_ms": {
+        "query_analysis": 0.13,
+        "retrieval": 6.7,
+        "rerank": 0.3,
+        "draft": 0.36,
+        "decompose": 0.0,
+        "verify": 0.0,
+        "final": 0.01,
+        "total": 7.58
+      }
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+# Reviewed manifest of the real corpus (Phase 1 SLICE: official Acts + supplementary judgments).
+# Claims only: `python -m legalrag.corpus validate` checks each one against the downloaded bytes.
+# Candidate judgments awaiting approval live in candidates_sc_2024_2025.yaml, NOT here.
+version: 1
+description: >-
+  Phase 1 criminal-law slice. Acts: Gazette Extraordinary PDFs hosted by the Ministry of Home Affairs.
+  Judgments: reported Supreme Court judgments from a third-party CC-BY-4.0 mirror of eCourts data.
+entries:
+- doc_uid: ACT-CONSTITUTION-1950
+  doc_type: statute
+  title: The Constitution of India
+  source_authority: official
+  source:
+    name: Legislative Department, Ministry of Law and Justice, Government of India
+    url: https://www.legislative.gov.in/static/uploads/2025/07/359f70a69695affb9d72f8393102bd2e.pdf
+    landing_url: https://www.legislative.gov.in/document/constitution-of-india-in-english
+    license: null   # not verified: no reuse statement was read for this host
+    kind: manual_import   # this host 403s the pipeline's honest User-Agent; a person downloaded it
+  local_file: acts/constitution_2025-11-11.pdf
+  identity:
+    pages: 5
+    all_of: ["THE CONSTITUTION OF INDIA"]
+  language: en
+  document_status: in_force
+  numbering: article
+  act_name: Constitution of India
+  act_year: 1950
+  enactment_date: 1950-01-26     # commencement; well-established, not read from a notification page of this file
+  period:
+    valid_from: 2025-11-11
+    basis: gazette_text
+    note: >-
+      valid_from is this document's own consolidation date ("As on 11th November, 2025" printed
+      on its title page), NOT the original 1950 commencement. This is a single as-of-date
+      compilation of a text amended ~106 times since 1950; the schema's one valid_from/valid_until
+      per document cannot represent each Article's individual amendment history, so temporal
+      queries about a specific Article before its own last amendment are NOT reliable against this
+      document. Treat it as "current constitutional text as of Nov 2025" only.
+  notes: >-
+    799-page bilingual (Hindi + English) PDF; pages ~1-50 are Hindi front matter/preamble and
+    extract as garbled text (a non-Unicode-mapped font) - harmless since only the English body
+    (from PART I onward) is used. Structure differs from the 2023 Sanhitas: PART -> (Chapter) ->
+    Article, with extensive tabular Schedules; see corpus reports/validation.json for what the
+    current parser does and does not handle.
+- doc_uid: ACT-BNS-2023
+  doc_type: statute
+  title: The Bharatiya Nyaya Sanhita, 2023 (Act No. 45 of 2023)
+  source_authority: official
+  source:
+    name: Ministry of Home Affairs, Government of India (Gazette of India Extraordinary, Part II Sec. 1, No. 53, 25 Dec 2023)
+    url: https://www.mha.gov.in/sites/default/files/250883_english_01042024.pdf
+    license: null   # not verified: no reuse statement was read for this host
+  local_file: acts/250883_english_01042024.pdf
+  identity:
+    pages: 2
+    all_of: ["PUBLISHED BY AUTHORITY", "THE BHARATIYA NYAYA SANHITA, 2023", "NO. 45 OF 2023"]
+  language: en
+  document_status: in_force
+  act_name: Bharatiya Nyaya Sanhita
+  act_year: 2023
+  act_number: 45 of 2023
+  enactment_date: 2023-12-25     # date of assent, printed in the Gazette text
+  period:
+    valid_from: 2024-07-01
+    basis: unverified_secondary  # commencement date per secondary sources; the notification has NOT been acquired
+    note: BNS/BNSS/BSA commenced 2024-07-01 (secondary sources). Acquire the commencement notification to verify.
+  margin_x: 483
+  margin_left_x: 116
+  notes: >-
+    Copy hosted by MHA, not byte-compared with the eGazette original (eGazette is CAPTCHA-gated).
+    Schedules are not indexed.
+- doc_uid: ACT-BNSS-2023
+  doc_type: statute
+  title: The Bharatiya Nagarik Suraksha Sanhita, 2023 (Act No. 46 of 2023)
+  source_authority: official
+  source:
+    name: Ministry of Home Affairs, Government of India (Gazette of India Extraordinary, Part II Sec. 1, No. 54, 25 Dec 2023)
+    url: https://www.mha.gov.in/sites/default/files/2024-04/250884_2_english_01042024.pdf
+    license: null
+  local_file: acts/250884_2_english_01042024.pdf
+  identity:
+    pages: 2
+    all_of: ["PUBLISHED BY AUTHORITY", "THE BHARATIYA NAGARIK SURAKSHA SANHITA, 2023", "NO. 46 OF 2023"]
+  language: en
+  document_status: in_force
+  act_name: Bharatiya Nagarik Suraksha Sanhita
+  act_year: 2023
+  act_number: 46 of 2023
+  enactment_date: 2023-12-25
+  period:
+    valid_from: 2024-07-01
+    basis: unverified_secondary
+    note: BNS/BNSS/BSA commenced 2024-07-01 (secondary sources). Acquire the commencement notification to verify.
+  margin_x: 483
+  margin_left_x: 116
+  notes: Copy hosted by MHA, not byte-compared with the eGazette original. The First Schedule (classification of offences) is not indexed.
+- doc_uid: ACT-BSA-2023
+  doc_type: statute
+  title: The Bharatiya Sakshya Adhiniyam, 2023 (Act No. 47 of 2023)
+  source_authority: official
+  source:
+    name: Ministry of Home Affairs, Government of India (Gazette of India Extraordinary, Part II Sec. 1, No. 55, 25 Dec 2023)
+    url: https://www.mha.gov.in/sites/default/files/250882_english_01042024.pdf
+    license: null
+  local_file: acts/250882_english_01042024.pdf
+  identity:
+    pages: 2
+    all_of: ["PUBLISHED BY AUTHORITY", "THE BHARATIYA SAKSHYA ADHINIYAM, 2023", "NO. 47 OF 2023"]
+  language: en
+  document_status: in_force
+  act_name: Bharatiya Sakshya Adhiniyam
+  act_year: 2023
+  act_number: 47 of 2023
+  enactment_date: 2023-12-25
+  period:
+    valid_from: 2024-07-01
+    basis: unverified_secondary
+    note: BNS/BNSS/BSA commenced 2024-07-01 (secondary sources). Acquire the commencement notification to verify.
+  margin_x: 483
+  margin_left_x: 116
+  notes: Copy hosted by MHA, not byte-compared with the eGazette original. The Schedule is not indexed.
+- doc_uid: ACT-ICA-1872
+  doc_type: statute
+  title: The Indian Contract Act, 1872 (Act No. 9 of 1872)
+  source_authority: official
+  source:
+    name: India Code, Legislative Department, Ministry of Law and Justice, Government of India
+    url: https://www.indiacode.nic.in/bitstream/123456789/2187/2/A187209.pdf
+    landing_url: https://www.indiacode.nic.in/handle/123456789/2187
+    license: null   # not verified: no reuse statement was read for this host
+    kind: manual_import   # this host 403s the pipeline's honest User-Agent (checked 2026-09-25)
+  local_file: acts/A187209.pdf
+  identity:
+    pages: 2
+    all_of: ["THE INDIAN CONTRACT ACT, 1872", "ARRANGEMENT OF SECTIONS"]
+  language: en
+  document_status: in_force
+  numbering: india_code
+  strip_footnotes: true
+  act_name: Indian Contract Act
+  act_year: 1872
+  act_number: 9 of 1872
+  enactment_date: 1872-04-25     # printed under the long title: "[25th April, 1872.]"
+  period:
+    valid_from: 1872-09-01
+    basis: gazette_text          # s. 1: "shall come into force on the first day of September, 1872"
+    note: >-
+      valid_from is the Act's own commencement, but this file is India Code's CONSOLIDATED text
+      (amendments up to at least Act 34 of 2019, cited in its footnotes), with no as-of date
+      printed on it. Sections amended since 1872 (e.g. 16, 19A, 28, 178, 178A) read as amended,
+      so temporal queries about a provision before its own amendment are NOT reliable against
+      this document. Chapters VII (sale of goods, ss. 76-123) and XI (partnership, ss. 239-266)
+      are repealed; their one-line "Rep. by ..." stubs are indexed.
+  notes: >-
+    Replaces two copies the user downloaded into legalrag/ whose text had been converted to
+    vector outlines (no text layer; 0 extractable characters). This copy has a real text layer; it
+    was downloaded on 2026-09-25 from the url above with a one-off curl request (browser-style
+    User-Agent), not by the pipeline, then imported (sha256 d756d45a...c59d, 568,075 bytes).
+    Amendment footnotes are stripped at extraction (strip_footnotes); inline footnote markers
+    ("1[India]", "writing2") stay in the text as printed. State amendments (e.g. Uttar Pradesh)
+    printed inside a section are kept as part of that section. The Schedule (repealed) is not indexed.
+- doc_uid: SC-2024-INSC-819
+  doc_type: judgment
+  title: CENTRAL BUREAU OF INVESTIGATION v. ASHOK SIRPAL
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_930_938_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_10_930_938_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 819
+  court: Supreme Court of India
+  decided_on: '2024-10-24'
+  neutral_citation: 2024 INSC 819
+  reporter_citations:
+  - '[2024] 10 S.C.R. 930'
+  notes: from dataset metadata; CNR ESCR010005832024
+- doc_uid: SC-2024-INSC-806
+  doc_type: judgment
+  title: MAFABHAI MOTIBHAI SAGAR v. STATE OF GUJARAT & ORS.
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_1448_1461_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_10_1448_1461_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 806
+  court: Supreme Court of India
+  decided_on: '2024-10-21'
+  neutral_citation: 2024 INSC 806
+  reporter_citations:
+  - '[2024] 10 S.C.R. 1448'
+  notes: from dataset metadata; CNR ESCR010006402024
+- doc_uid: SC-2024-INSC-546
+  doc_type: judgment
+  title: PARVINDER SINGH KHURANA v. DIRECTORATE OF ENFORCEMENT
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_7_979_991_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_7_979_991_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 546
+  court: Supreme Court of India
+  decided_on: '2024-07-23'
+  neutral_citation: 2024 INSC 546
+  reporter_citations:
+  - '[2024] 7 S.C.R. 979'
+  notes: from dataset metadata; CNR ESCR010004572024
+- doc_uid: SC-2024-INSC-735
+  doc_type: judgment
+  title: VIJAY SINGH @ VIJAY KR. SHARMA v. THE STATE OF BIHAR
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_108_125_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_10_108_125_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 735
+  court: Supreme Court of India
+  decided_on: '2024-09-25'
+  neutral_citation: 2024 INSC 735
+  reporter_citations:
+  - '[2024] 10 S.C.R. 108'
+  notes: from dataset metadata; CNR ESCR010004822024; matched terms in first 3 pages [murder]
+- doc_uid: SC-2024-INSC-452
+  doc_type: judgment
+  title: UNION OF INDIA REP. BY THE INSPECTOR OF POLICE NATIONAL INVESTIGATION AGENCY CHENNAI BRANCH v. BARAKATHULLAH ETC.
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_5_1011_1037_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_5_1011_1037_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 452
+  court: Supreme Court of India
+  decided_on: '2024-05-22'
+  neutral_citation: 2024 INSC 452
+  reporter_citations:
+  - '[2024] 5 S.C.R. 1011'
+  notes: from dataset metadata; CNR ESCR010004182024; matched terms in first 3 pages [murder]
+- doc_uid: SC-2024-INSC-438
+  doc_type: judgment
+  title: AJWAR v. WASEEM AND ANOTHER
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_5_575_595_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_5_575_595_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 438
+  court: Supreme Court of India
+  decided_on: '2024-05-17'
+  neutral_citation: 2024 INSC 438
+  reporter_citations:
+  - '[2024] 5 S.C.R. 575'
+  notes: from dataset metadata; CNR ESCR010002932024; matched terms in first 3 pages [murder]
+- doc_uid: SC-2024-INSC-642
+  doc_type: judgment
+  title: K. RAVI v. STATE OF TAMIL NADU & ANR.
+  source_authority: supplementary
+  language: en
+  document_status: reported_judgment
+  source:
+    name: Indian Supreme Court Judgments dataset (Dattam Labs, AWS Open Data; derived
+      from eCourts)
+    url: https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_8_700_708_EN.pdf
+    landing_url: https://registry.opendata.aws/indian-supreme-court-judgments/
+    license: CC-BY-4.0 (as stated on the dataset's registry page)
+  local_file: sc/2024/2024_8_700_708_EN.pdf
+  identity:
+    pages: 2
+    all_of:
+    - 2024 INSC 642
+  court: Supreme Court of India
+  decided_on: '2024-08-29'
+  neutral_citation: 2024 INSC 642
+  reporter_citations:
+  - '[2024] 8 S.C.R. 700'
+  notes: from dataset metadata; CNR ESCR010004982024; matched terms in first 3 pages [murder]

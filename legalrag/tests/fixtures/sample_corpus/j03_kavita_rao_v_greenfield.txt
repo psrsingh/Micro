@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Kavita Rao v. Greenfield Housing Society (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2011-11-03
+neutral_citation: 2011 SYN 33
+reporter_citations: ["(2011) 4 SYN 12"]
+---
+## HEADNOTE
+Sample Tenancy Act, 2001, Section 7 - security deposit - deposit exceeding two months' rent is recoverable in excess; refund due within thirty days of vacating.
+## FACTS
+The society took a deposit equal to five months' rent from the tenant and did not refund it after she vacated the flat in 2010.
+## ARGUMENTS
+The society argued that the deposit was agreed freely and the tenant was bound by the lease. The tenant relied on the cap in Section 7.
+## REASONING
+Section 7, as it stood in 2011, limited a security deposit to two months' rent. A contract term exceeding the cap is void to the extent of the excess. The tenant is entitled to the excess immediately and to the balance within thirty days of vacating.
+## HOLDING
+The excess over two months' rent must be refunded with interest, and the balance refunded within thirty days of vacating.

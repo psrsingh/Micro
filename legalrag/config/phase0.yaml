@@ -1,0 +1,34 @@
+# Phase 0: plumbing only. Fake LLM, hashed embeddings, lexical stand-in reranker,
+# fake verifier. None of the numbers produced under this config mean anything about
+# retrieval or verification quality.
+name: phase0
+seed: 1234
+
+embedding:
+  kind: hash
+  model: hash-bow-v1
+  dim: 384
+
+llm:
+  provider: fake
+  model: fake-v1
+  temperature: 0.0
+  seed: 1234
+
+ingest:
+  corpus_dir: legalrag/tests/fixtures/sample_corpus
+  chunk_target_tokens: 200
+  chunk_max_tokens: 400
+  chunk_overlap_tokens: 40
+
+retrieval:
+  fused_top_k: 50
+
+rerank:
+  kind: lexical_fake
+  keep: 10
+
+verify:
+  kind: fake
+  enabled_checks: [authority, citation_metadata, statute, claim_support, temporal]
+  min_verified_per_claim: 1

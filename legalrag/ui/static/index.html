@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>legalrag · verified legal answers</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Ctext x='16' y='24' font-size='22' text-anchor='middle' fill='white' font-family='Georgia,serif'%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">§</span>
+    <div>
+      <h1>legalrag</h1>
+      <p>Retrieve the evidence, verify it, then answer.</p>
+    </div>
+  </div>
+  <nav id="tabs" aria-label="Sections">
+    <a href="#ask" data-tab="ask">Ask</a>
+    <a href="#history" data-tab="history">History</a>
+    <a href="#benchmark" data-tab="benchmark">Benchmark</a>
+    <a href="#corpus" data-tab="corpus">Corpus</a>
+  </nav>
+  <label class="cfg">
+    <span>Config</span>
+    <select id="cfgSel" aria-label="Pipeline configuration"></select>
+  </label>
+</header>
+
+<div id="banner" class="banner" role="note"></div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<main id="main">
+  <section id="view-ask" data-view="ask" hidden></section>
+  <section id="view-history" data-view="history" hidden></section>
+  <section id="view-benchmark" data-view="benchmark" hidden></section>
+  <section id="view-corpus" data-view="corpus" hidden></section>
+</main>
+
+<noscript><p class="alert">This page needs JavaScript.</p></noscript>
+<script src="/app.js"></script>
+</body>
+</html>

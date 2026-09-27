@@ -1,0 +1,9 @@
+Split the draft below into atomic claims. Each claim must be one proposition that can be checked on its own against a source passage. Split compound sentences. Resolve pronouns so each claim stands alone. Do not add, merge, or reword the substance of anything.
+
+Keep, for each claim, the passage labels the draft attached to it (for example ["E1","E3"]). If the draft attached none, use an empty list. Never invent labels.
+
+Return ONE JSON object, nothing else:
+{"claims": [{"text": "...", "citations": ["E1"]}]}
+
+DRAFT:
+{{draft}}

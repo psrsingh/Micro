@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Dinesh Batra v. Meera Kapoor (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2013-12-05
+neutral_citation: 2013 SYN 18
+reporter_citations: ["(2013) 6 SYN 57"]
+---
+## HEADNOTE
+Sample Tenancy Act, 2001, Section 7 as amended in 2012 - security deposit cap raised to three months' rent - applies only to tenancies created on or after 1 July 2012.
+## FACTS
+A tenancy created in 2010 carried a deposit of three months' rent. The tenant relied on the pre-amendment cap of two months.
+## ARGUMENTS
+The landlord argued that the 2012 amendment permitted three months' rent and applied to all subsisting tenancies. The tenant argued the amendment was prospective.
+## REASONING
+The amendment substituted Section 7 with effect from 1 July 2012 and contains no provision applying it to existing tenancies. Substantive limits on contractual terms operate prospectively unless the statute says otherwise.
+## HOLDING
+For tenancies created before 1 July 2012 the two month cap continues to apply. The three month cap governs tenancies created on or after that date.

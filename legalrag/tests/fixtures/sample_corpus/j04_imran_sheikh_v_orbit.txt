@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Imran Sheikh v. Orbit Appliances (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2015-05-19
+neutral_citation: 2015 SYN 9
+reporter_citations: ["(2015) 2 SYN 88"]
+---
+## HEADNOTE
+Sample Consumer Protection Act, 2010, Section 3 - warranty - a manufacturer must repair or replace a defective product within the warranty period.
+## FACTS
+The appellant bought a washing machine that failed within four months. The manufacturer offered only a paid repair.
+## ARGUMENTS
+The manufacturer argued that its warranty card excluded replacement. The appellant relied on Section 3.
+## REASONING
+Section 3 of the Sample Consumer Protection Act, 2010 implies a duty to repair or replace goods that are defective during the warranty period. A warranty card cannot contract out of a statutory duty.
+## HOLDING
+The manufacturer must replace the machine or refund its price. Terms excluding replacement during the warranty period are unenforceable.

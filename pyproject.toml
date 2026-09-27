@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "legalrag"
+version = "0.0.1"
+description = "Confidence-aware verification for Indian legal RAG"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "psycopg[binary]>=3.2",
+    "pgvector>=0.3",
+    "numpy>=1.26",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+# API-backed generator arm. Not needed for the offline core pipeline.
+api = ["anthropic>=1.0"]
+# Real embedder + cross-encoder. Pulls in torch, which is large: install only when needed.
+ml = ["sentence-transformers>=3.0"]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["legalrag*"]
+
+[tool.setuptools.package-data]
+legalrag = ["config/*.yaml", "store/migrations/*.sql", "pipeline/prompts/*.txt", "eval/data/*.jsonl", "ui/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["legalrag/tests"]
+markers = ["db: needs a reachable Postgres with pgvector"]

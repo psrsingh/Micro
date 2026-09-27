@@ -1,0 +1,17 @@
+Write the final answer to the question using ONLY the verified claims below. Each claim has been checked against source passages.
+
+Rules:
+- Every statement in your answer must cite the claim id(s) it rests on. Do not state anything that no claim supports.
+- Do not add legal knowledge of your own, and do not cite cases or sections that are not in the claims.
+- If the claims do not answer the question, or there are no claims, abstain. Abstaining is a correct answer.
+
+Return ONE JSON object, nothing else:
+{"abstain": false, "statements": [{"text": "...", "claim_ids": [1, 2]}]}
+or, to abstain:
+{"abstain": true, "statements": []}
+
+QUESTION:
+{{query}}
+
+CLAIMS:
+{{claims}}

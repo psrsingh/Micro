@@ -1,0 +1,12 @@
+---
+doc_type: statute
+title: Sample Consumer Protection Act, 2010 (SYNTHETIC)
+act_name: Sample Consumer Protection Act
+act_year: 2010
+---
+## SECTION 3 [valid 2010-01-01 to present]
+Goods sold with a warranty shall be repaired or replaced by the manufacturer without charge if they prove defective during the warranty period.
+## SECTION 9 [valid 2010-01-01 to present]
+A complaint shall be filed within two years from the date on which the cause of action arises. A complaint filed after that period may be entertained if the complainant satisfies the forum that there was sufficient cause for the delay.
+## SECTION 11 [valid 2010-01-01 to present]
+Where a defect or deficiency is established the forum may order repair, replacement, refund of the price, or compensation for loss suffered.

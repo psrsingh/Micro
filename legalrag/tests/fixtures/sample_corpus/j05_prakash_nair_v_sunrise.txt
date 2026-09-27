@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Prakash Nair v. Sunrise Motors (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2017-09-27
+neutral_citation: 2017 SYN 41
+reporter_citations: ["(2017) 5 SYN 3"]
+---
+## HEADNOTE
+Sample Consumer Protection Act, 2010, Section 9 - limitation - a complaint must be filed within two years of the cause of action; delay may be condoned on sufficient cause.
+## FACTS
+The complainant discovered a defect in a vehicle in 2013 and filed a complaint in 2016, explaining that he had been hospitalised for most of 2014.
+## ARGUMENTS
+The dealer argued that the complaint was time-barred. The complainant argued that his illness was sufficient cause.
+## REASONING
+Section 9 fixes a two year period but permits condonation where the complainant shows sufficient cause for the whole of the delay. Hospitalisation covering part of the period does not explain the remaining delay.
+## HOLDING
+The complaint is time-barred because sufficient cause was not shown for the entire period of delay.

@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Asha Devi v. Rajan Traders (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2004-08-10
+neutral_citation: 2004 SYN 21
+reporter_citations: ["(2004) 3 SYN 101"]
+---
+## HEADNOTE
+Sample Tenancy Act, 2001, Section 12 - eviction - notice - a landlord must give thirty days' written notice before instituting eviction proceedings; oral notice is not sufficient.
+## FACTS
+The appellant let a shop to the respondent in 2001. In 2003 she told the respondent orally that she needed the shop back and filed for eviction ten days later. The trial court decreed eviction.
+## ARGUMENTS
+Counsel for the appellant argued that the respondent had actual knowledge of the requirement and that a formal notice would have been an empty ritual. The respondent argued that Section 12 admits of no exception.
+## REASONING
+Section 12 of the Sample Tenancy Act, 2001 requires a written notice of thirty days. The requirement protects the tenant's opportunity to arrange alternative premises. Actual knowledge gained from an oral conversation does not substitute for the statutory notice because the statute prescribes both form and period.
+## HOLDING
+Eviction proceedings instituted without thirty days' written notice under Section 12 are not maintainable. The decree is set aside.

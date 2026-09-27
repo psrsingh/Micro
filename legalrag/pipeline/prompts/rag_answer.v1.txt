@@ -1,0 +1,10 @@
+Answer the question about Indian law using the numbered passages below. List every case and every Act/section your answer relies on in "citations". State how confident you are, from 0.0 (guessing) to 1.0 (certain), in "confidence". If the passages do not answer the question, set "abstain" to true.
+
+Return ONE JSON object, nothing else:
+{"abstain": false, "answer": "...", "citations": ["Case Name v. Case Name, 2004 SYN 21", "Section 12 of the Example Act, 2001"], "confidence": 0.7}
+
+PASSAGES:
+{{evidence}}
+
+QUESTION:
+{{query}}

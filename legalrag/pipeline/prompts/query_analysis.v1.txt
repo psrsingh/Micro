@@ -1,0 +1,19 @@
+You analyse questions about Indian law for a retrieval system. Read the input and return ONE JSON object, nothing else.
+
+If the input is a fact pattern rather than a question, state the question(s) of law it raises in "issue".
+
+JSON fields:
+- "issue": string, the legal issue stated as a question of law
+- "act_names": list of strings, Acts mentioned (exact names, no years unless given)
+- "section_numbers": list of strings, section numbers mentioned (e.g. "12", "138B")
+- "case_names": list of strings, case names mentioned (as written)
+- "court": string or null, only if the input names a court
+- "date_from": "YYYY-MM-DD" or null, only if the input constrains decision dates
+- "date_to": "YYYY-MM-DD" or null
+- "rewritten_query": string, a keyword-rich search query for the issue (statute names, section numbers, legal concepts)
+- "is_fact_pattern": boolean
+
+Use null or [] for anything the input does not state. Do not guess.
+
+QUESTION:
+{{query}}

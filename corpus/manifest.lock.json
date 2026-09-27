@@ -1,0 +1,148 @@
+{
+  "records": [
+    {
+      "doc_uid": "ACT-BNS-2023",
+      "url": "https://www.mha.gov.in/sites/default/files/250883_english_01042024.pdf",
+      "retrieved_at": "2026-09-21T06:25:40.303180Z",
+      "sha256": "c9da896e7a16c481a46235789f74f545b7a9ed7f3a5c8049d0b1b9252c6731f4",
+      "size_bytes": 1324200,
+      "http_status": null,
+      "content_type": null,
+      "etag": null,
+      "last_modified": null,
+      "method": "manual_import"
+    },
+    {
+      "doc_uid": "ACT-BNSS-2023",
+      "url": "https://www.mha.gov.in/sites/default/files/2024-04/250884_2_english_01042024.pdf",
+      "retrieved_at": "2026-09-21T06:25:41.177602Z",
+      "sha256": "5e60e2afe30d0fe7eca4f8126301146b76c86a444e690581f81eb564843517fe",
+      "size_bytes": 2033181,
+      "http_status": null,
+      "content_type": null,
+      "etag": null,
+      "last_modified": null,
+      "method": "manual_import"
+    },
+    {
+      "doc_uid": "ACT-BSA-2023",
+      "url": "https://www.mha.gov.in/sites/default/files/250882_english_01042024.pdf",
+      "retrieved_at": "2026-09-21T06:25:42.080444Z",
+      "sha256": "13e2b6eb66add222c7262ccaa0b08d58e48ca22cdf0953f6541123ef039de239",
+      "size_bytes": 670370,
+      "http_status": null,
+      "content_type": null,
+      "etag": null,
+      "last_modified": null,
+      "method": "manual_import"
+    },
+    {
+      "doc_uid": "ACT-CONSTITUTION-1950",
+      "url": "https://www.legislative.gov.in/static/uploads/2025/07/359f70a69695affb9d72f8393102bd2e.pdf",
+      "retrieved_at": "2026-09-25T12:57:21.321195Z",
+      "sha256": "485d637c268bd079cf07a81e7a1df05ea785e3effda167a4f19699e97279ee50",
+      "size_bytes": 6655162,
+      "http_status": null,
+      "content_type": null,
+      "etag": null,
+      "last_modified": null,
+      "method": "manual_import"
+    },
+    {
+      "doc_uid": "ACT-ICA-1872",
+      "url": "https://www.indiacode.nic.in/bitstream/123456789/2187/2/A187209.pdf",
+      "retrieved_at": "2026-09-25T16:00:59.599036Z",
+      "sha256": "d756d45a58c4cd8440e70a0189ea1fda9d7c5dfcdd6ef31a5f2ecd9cb209c59d",
+      "size_bytes": 568075,
+      "http_status": null,
+      "content_type": null,
+      "etag": null,
+      "last_modified": null,
+      "method": "manual_import"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-438",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_5_575_595_EN.pdf",
+      "retrieved_at": "2026-09-25T12:14:20.629823Z",
+      "sha256": "acc411c11992b5feffff72ca6657ea012dcf7de80c8d440251849d5dbbe74f8e",
+      "size_bytes": 254179,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"e0fb35520f5147040d4f8d765f0bddb2\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:02 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-452",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_5_1011_1037_EN.pdf",
+      "retrieved_at": "2026-09-25T12:14:19.591262Z",
+      "sha256": "35d618a7e4c92d1bfb3dff8fb22e09d171185b09bf3660274b875741fa76c6ea",
+      "size_bytes": 251472,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"ba5a382f1092cd46bc3186500fac4452\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:01 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-546",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_7_979_991_EN.pdf",
+      "retrieved_at": "2026-09-21T06:25:20.636158Z",
+      "sha256": "2ac3dbe961ced414410e83c6b6679083c4e6db3b9d4ef691dfe409b8bacf04ad",
+      "size_bytes": 157431,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"beff8e81681c63961c3759cd56a402a8\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:14 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-642",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_8_700_708_EN.pdf",
+      "retrieved_at": "2026-09-25T12:14:21.557586Z",
+      "sha256": "6e419a87bf3607251f200920a8aeb872f6de9148de0bda1503c86ba7f72733ea",
+      "size_bytes": 123510,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"2d6db771df5c922651bdb53467c25b86\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:06 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-735",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_108_125_EN.pdf",
+      "retrieved_at": "2026-09-25T12:14:18.746410Z",
+      "sha256": "13f50390772989aefa40fcf3e8af3593420227a7f01acb0f1ff4ed0ba0a6cc77",
+      "size_bytes": 182719,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"f7357ebc9d062aed055ed9a06adaf859\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:01 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-806",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_1448_1461_EN.pdf",
+      "retrieved_at": "2026-09-21T06:25:19.230992Z",
+      "sha256": "714bbb61bc60c658bd9893fc2e2b045afed542157d20588c55c767eaccd3610d",
+      "size_bytes": 175739,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"ca1857280d07b8a5477adb0a28ed6dc2\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:05 GMT",
+      "method": "http"
+    },
+    {
+      "doc_uid": "SC-2024-INSC-819",
+      "url": "https://indian-supreme-court-judgments.s3.ap-south-1.amazonaws.com/data/pdf/year=2024/english/2024_10_930_938_EN.pdf",
+      "retrieved_at": "2026-09-21T06:25:18.314788Z",
+      "sha256": "869a204f0c1e5c5e4587a0db917627cba8c05dc7341a04af9b44d032900c93f4",
+      "size_bytes": 129974,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "etag": "\"f61037e987e001cfd99c1a33a751cd8a\"",
+      "last_modified": "Thu, 04 Jun 2026 05:23:07 GMT",
+      "method": "http"
+    }
+  ]
+}

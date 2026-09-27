@@ -1,0 +1,581 @@
+{
+  "kind": "arm-comparison",
+  "timestamp": "20260925T122153Z",
+  "config_name": "real_corpus",
+  "config_hash": "5a20c4753433984b",
+  "config": {
+    "name": "real_corpus",
+    "seed": 1234,
+    "embedding": {
+      "kind": "sentence_transformers",
+      "model": "BAAI/bge-small-en-v1.5",
+      "dim": 384,
+      "device": "cpu",
+      "batch_size": 16
+    },
+    "llm": {
+      "provider": "fake",
+      "model": "fake-v1",
+      "temperature": 0.0,
+      "seed": 1234,
+      "max_tokens": 1024,
+      "base_url": null,
+      "effort": "low",
+      "timeout_s": 120.0
+    },
+    "ingest": {
+      "corpus_dir": "legalrag/tests/fixtures/sample_corpus",
+      "chunk_target_tokens": 200,
+      "chunk_max_tokens": 400,
+      "chunk_overlap_tokens": 40
+    },
+    "retrieval": {
+      "lexical_top_k": 100,
+      "dense_top_k": 100,
+      "fused_top_k": 50,
+      "rrf_k": 60,
+      "allowed_verification_statuses": [
+        "official_verified",
+        "supplementary_source"
+      ]
+    },
+    "rerank": {
+      "kind": "cross_encoder",
+      "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+      "device": "cpu",
+      "batch_size": 16,
+      "keep": 10,
+      "boost_section_match": 0.15,
+      "boost_case_name_match": 0.15,
+      "boost_holding_reasoning": 0.1,
+      "penalty_arguments": 0.1
+    },
+    "verify": {
+      "kind": "real",
+      "enabled_checks": [
+        "authority",
+        "citation_metadata",
+        "statute",
+        "claim_support",
+        "temporal"
+      ],
+      "min_verified_per_claim": 1,
+      "include_flagged": true,
+      "as_of": "2026-09-21",
+      "support_judge": "lexical",
+      "lexical_pass": 0.5,
+      "lexical_warn": 0.3,
+      "lexical_can_verify": false,
+      "judge_prompt": "v2",
+      "reject_on_fail": [
+        "authority",
+        "citation_metadata",
+        "statute",
+        "claim_support"
+      ],
+      "require_pass": [
+        "claim_support"
+      ]
+    },
+    "pipeline": {
+      "max_claims": 12,
+      "abstain_on_unavailable_authority": true
+    },
+    "eval": {
+      "benchmark_path": "legalrag/eval/data/benchmark_real.jsonl",
+      "probes_path": "legalrag/eval/data/authority_probes_synthetic.jsonl",
+      "corpus_source": "db",
+      "arms": [
+        "baseline",
+        "standard_rag",
+        "verified_rag"
+      ],
+      "recall_ks": [
+        1,
+        3,
+        5,
+        10
+      ],
+      "high_confidence": 0.8,
+      "audit_judge": "lexical"
+    }
+  },
+  "corpus_sha": "eea6d76ecf636abd",
+  "model_info": {
+    "llm": {
+      "provider": "fake",
+      "model": "fake-v1",
+      "temperature": 0.0,
+      "seed": 1234
+    },
+    "embedding": {
+      "kind": "sentence_transformers",
+      "model": "BAAI/bge-small-en-v1.5",
+      "dim": 384
+    },
+    "reranker": {
+      "kind": "cross_encoder",
+      "model": "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    },
+    "verifier": {
+      "kind": "real",
+      "enabled_checks": [
+        "authority",
+        "citation_metadata",
+        "statute",
+        "claim_support",
+        "temporal"
+      ],
+      "support_judge": "lexical",
+      "as_of": "2026-09-21",
+      "include_flagged": true
+    },
+    "audit_judge": "lexical"
+  },
+  "notes": [
+    "PLUMBING RUN. The generator is a deterministic fake; nothing here measures model quality.",
+    "Answer accuracy is graded by phrase rules in the benchmark (must_include / must_not_include), not by a model: it is transparent but coarse.",
+    "HCER threshold: confidence >= 0.8. Confidence is verification-derived for verified_rag and model-stated for the other arms, so HCER compares two different kinds of confidence.",
+    "The authority-verification probes were written together with the checks: AVA is a regression suite over constructed cases, not a held-out estimate (it always runs over the synthetic fixtures, independently of the corpus below).",
+    "This benchmark is checked against the real, DB-ingested corpus (eval.corpus_source: db): see the corpus report for source authority and verification status of every document.",
+    "The audit judge is lexical word-overlap, which cannot detect a contradiction: EGA/UCR/CSR are approximate. See the audit-judge check below."
+  ],
+  "summary": {
+    "arms": {
+      "verified_rag": {
+        "n_queries": 5,
+        "answered": 5,
+        "abstained": 0,
+        "errors": 0,
+        "answer_accuracy": 0.2,
+        "answer_accuracy_answerable": 0.25,
+        "abstention_accuracy_unanswerable": 0.0,
+        "cvr": 1.0,
+        "invalid_citation_rate": 0.0,
+        "n_cited": 15,
+        "csr": 0.0,
+        "n_csr": 15,
+        "ega": 0.0,
+        "ucr": 1.0,
+        "n_statements": 15,
+        "hcer": 0.0,
+        "hcer_over_answered": 0.0,
+        "n_with_confidence": 5,
+        "wrong_answers_disclosed": 1.0,
+        "n_wrong_answers": 4,
+        "mean_latency_ms": 2022.04,
+        "recall_doc@1": 0.5,
+        "recall_span@1": 0.0,
+        "precision_span@1": 0.0,
+        "recall_doc@3": 0.5,
+        "recall_span@3": 0.25,
+        "precision_span@3": 0.0833,
+        "recall_doc@5": 0.5,
+        "recall_span@5": 0.25,
+        "precision_span@5": 0.05,
+        "recall_doc@10": 0.5,
+        "recall_span@10": 0.25,
+        "precision_span@10": 0.025,
+        "error_categories": {
+          "answered_out_of_scope": 1,
+          "real_case_wrong_proposition": 5,
+          "unsupported_reasoning": 5,
+          "wrong_conclusion": 3
+        }
+      }
+    },
+    "ava": {
+      "ava": 1.0,
+      "n": 15,
+      "confusion": {
+        "invalid_caught": 8,
+        "valid_passed": 7,
+        "valid_wrongly_rejected": 0,
+        "invalid_missed": 0
+      },
+      "by_kind": {
+        "fabricated_case": {
+          "n": 2,
+          "accuracy": 1.0
+        },
+        "nonexistent_act": {
+          "n": 1,
+          "accuracy": 1.0
+        },
+        "outside_corpus": {
+          "n": 1,
+          "accuracy": 1.0
+        },
+        "real": {
+          "n": 6,
+          "accuracy": 1.0
+        },
+        "wrong_metadata": {
+          "n": 3,
+          "accuracy": 1.0
+        },
+        "wrong_section": {
+          "n": 2,
+          "accuracy": 1.0
+        }
+      }
+    },
+    "audit_judge_agreement": {
+      "n": 0,
+      "agree": 0
+    }
+  },
+  "records": [
+    {
+      "id": "rc01",
+      "arm": "verified_rag",
+      "outcome": "answered",
+      "correct": false,
+      "answerable": true,
+      "confidence": 0.25,
+      "confidence_source": "verification",
+      "high_confidence_error": false,
+      "has_confidence": true,
+      "caveated": true,
+      "retrieval": {
+        "recall_doc@1": 0.0,
+        "recall_span@1": 0.0,
+        "precision_span@1": 0.0,
+        "recall_doc@3": 0.0,
+        "recall_span@3": 0.0,
+        "precision_span@3": 0.0,
+        "recall_doc@5": 0.0,
+        "recall_span@5": 0.0,
+        "precision_span@5": 0.0,
+        "recall_doc@10": 0.0,
+        "recall_span@10": 0.0,
+        "precision_span@10": 0.0
+      },
+      "cited": [
+        {
+          "label": "Section 61 of Bharatiya Nyaya Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nyaya Sanhita",
+          "section": "61"
+        },
+        {
+          "label": "Section 215 of ?",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "215"
+        },
+        {
+          "label": "Section 220 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "220"
+        },
+        {
+          "label": "Section 217 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "217"
+        },
+        {
+          "label": "Section 363 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "363"
+        }
+      ],
+      "cited_total": 5,
+      "cited_valid": 5,
+      "csr_total": 5,
+      "csr_supported": 0,
+      "stmts_total": 3,
+      "stmts_supported": 0,
+      "error_categories": {
+        "real_case_wrong_proposition": 1,
+        "unsupported_reasoning": 1,
+        "wrong_conclusion": 1
+      },
+      "latency_ms": 2195.24
+    },
+    {
+      "id": "rc02",
+      "arm": "verified_rag",
+      "outcome": "answered",
+      "correct": false,
+      "answerable": true,
+      "confidence": 0.25,
+      "confidence_source": "verification",
+      "high_confidence_error": false,
+      "has_confidence": true,
+      "caveated": true,
+      "retrieval": {
+        "recall_doc@1": 0.0,
+        "recall_span@1": 0.0,
+        "precision_span@1": 0.0,
+        "recall_doc@3": 0.0,
+        "recall_span@3": 0.0,
+        "precision_span@3": 0.0,
+        "recall_doc@5": 0.0,
+        "recall_span@5": 0.0,
+        "precision_span@5": 0.0,
+        "recall_doc@10": 0.0,
+        "recall_span@10": 0.0,
+        "precision_span@10": 0.0
+      },
+      "cited": [
+        {
+          "label": "Section 61 of Bharatiya Nyaya Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nyaya Sanhita",
+          "section": "61"
+        },
+        {
+          "label": "Section 215 of ?",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "215"
+        },
+        {
+          "label": "Section 197 of ?",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "197"
+        },
+        {
+          "label": "Section 353 of Bharatiya Nyaya Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nyaya Sanhita",
+          "section": "353"
+        },
+        {
+          "label": "Section 217 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "217"
+        }
+      ],
+      "cited_total": 5,
+      "cited_valid": 5,
+      "csr_total": 5,
+      "csr_supported": 0,
+      "stmts_total": 3,
+      "stmts_supported": 0,
+      "error_categories": {
+        "real_case_wrong_proposition": 1,
+        "unsupported_reasoning": 1,
+        "wrong_conclusion": 1
+      },
+      "latency_ms": 1801.09
+    },
+    {
+      "id": "rc03",
+      "arm": "verified_rag",
+      "outcome": "answered",
+      "correct": false,
+      "answerable": true,
+      "confidence": 0.25,
+      "confidence_source": "verification",
+      "high_confidence_error": false,
+      "has_confidence": true,
+      "caveated": true,
+      "retrieval": {
+        "recall_doc@1": 1.0,
+        "recall_span@1": 0.0,
+        "precision_span@1": 0.0,
+        "recall_doc@3": 1.0,
+        "recall_span@3": 1.0,
+        "precision_span@3": 0.3333333333333333,
+        "recall_doc@5": 1.0,
+        "recall_span@5": 1.0,
+        "precision_span@5": 0.2,
+        "recall_doc@10": 1.0,
+        "recall_span@10": 1.0,
+        "precision_span@10": 0.1
+      },
+      "cited": [
+        {
+          "label": "2024 INSC 819",
+          "valid": true,
+          "category": null,
+          "kind": "case",
+          "in_corpus": true,
+          "case_citation": "2024 INSC 819",
+          "case_name": "CENTRAL BUREAU OF INVESTIGATION v. ASHOK SIRPAL",
+          "act": null,
+          "section": null
+        }
+      ],
+      "cited_total": 1,
+      "cited_valid": 1,
+      "csr_total": 1,
+      "csr_supported": 0,
+      "stmts_total": 3,
+      "stmts_supported": 0,
+      "error_categories": {
+        "real_case_wrong_proposition": 1,
+        "unsupported_reasoning": 1,
+        "wrong_conclusion": 1
+      },
+      "latency_ms": 2213.57
+    },
+    {
+      "id": "rc04",
+      "arm": "verified_rag",
+      "outcome": "answered",
+      "correct": true,
+      "answerable": true,
+      "confidence": 0.25,
+      "confidence_source": "verification",
+      "high_confidence_error": false,
+      "has_confidence": true,
+      "caveated": true,
+      "retrieval": {
+        "recall_doc@1": 1.0,
+        "recall_span@1": 0.0,
+        "precision_span@1": 0.0,
+        "recall_doc@3": 1.0,
+        "recall_span@3": 0.0,
+        "precision_span@3": 0.0,
+        "recall_doc@5": 1.0,
+        "recall_span@5": 0.0,
+        "precision_span@5": 0.0,
+        "recall_doc@10": 1.0,
+        "recall_span@10": 0.0,
+        "precision_span@10": 0.0
+      },
+      "cited": [
+        {
+          "label": "2024 INSC 438",
+          "valid": true,
+          "category": null,
+          "kind": "case",
+          "in_corpus": true,
+          "case_citation": "2024 INSC 438",
+          "case_name": "AJWAR v. WASEEM AND ANOTHER",
+          "act": null,
+          "section": null
+        }
+      ],
+      "cited_total": 1,
+      "cited_valid": 1,
+      "csr_total": 1,
+      "csr_supported": 0,
+      "stmts_total": 3,
+      "stmts_supported": 0,
+      "error_categories": {
+        "real_case_wrong_proposition": 1,
+        "unsupported_reasoning": 1
+      },
+      "latency_ms": 2249.4
+    },
+    {
+      "id": "rc05",
+      "arm": "verified_rag",
+      "outcome": "answered",
+      "correct": false,
+      "answerable": false,
+      "confidence": 0.25,
+      "confidence_source": "verification",
+      "high_confidence_error": false,
+      "has_confidence": true,
+      "caveated": true,
+      "retrieval": {},
+      "cited": [
+        {
+          "label": "Section 513 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "513"
+        },
+        {
+          "label": "Section 514 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "514"
+        },
+        {
+          "label": "Section 222 of Bharatiya Nagarik Suraksha Sanhita",
+          "valid": true,
+          "category": null,
+          "kind": "section",
+          "in_corpus": true,
+          "case_citation": null,
+          "case_name": null,
+          "act": "Bharatiya Nagarik Suraksha Sanhita",
+          "section": "222"
+        }
+      ],
+      "cited_total": 3,
+      "cited_valid": 3,
+      "csr_total": 3,
+      "csr_supported": 0,
+      "stmts_total": 3,
+      "stmts_supported": 0,
+      "error_categories": {
+        "real_case_wrong_proposition": 1,
+        "unsupported_reasoning": 1,
+        "answered_out_of_scope": 1
+      },
+      "latency_ms": 1650.88
+    }
+  ]
+}

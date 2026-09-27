@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Farida Begum v. Metro Rentals (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2019-03-22
+neutral_citation: 2019 SYN 27
+reporter_citations: ["(2019) 1 SYN 140"]
+---
+## HEADNOTE
+Sample Tenancy Act, 2001, Section 12 - written notice - an emailed notice satisfies the requirement of writing if receipt is proved.
+## FACTS
+The landlord sent the tenant a notice by email and filed for eviction after thirty days. The tenant denied having seen the email.
+## ARGUMENTS
+The tenant argued that only paper notice is written notice. The landlord argued that email is a written communication.
+## REASONING
+The purpose of Section 12 is that the tenant receives thirty days' warning in a durable form. An email is a durable written record. The landlord must prove that it reached the tenant, and here the delivery receipt and the tenant's reply were on record.
+## HOLDING
+Email notice is written notice under Section 12 when receipt is proved. The eviction proceedings are maintainable.

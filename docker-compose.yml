@@ -1,0 +1,24 @@
+# Postgres + pgvector is the only datastore. Data lives in a named volume,
+# not in the (OneDrive-synced) project directory.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: legalrag-db
+    environment:
+      POSTGRES_USER: legalrag
+      POSTGRES_PASSWORD: legalrag
+      POSTGRES_DB: legalrag
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - legalrag-pgdata:/var/lib/postgresql/data
+    # Keep the footprint small; this machine has ~6 GB RAM.
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "max_connections=30"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U legalrag -d legalrag"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  legalrag-pgdata:

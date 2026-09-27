@@ -1,0 +1,14 @@
+---
+doc_type: statute
+title: Sample Tenancy Act, 2001 (SYNTHETIC)
+act_name: Sample Tenancy Act
+act_year: 2001
+---
+## SECTION 7 [valid 2001-04-01 to 2012-06-30]
+A landlord shall not demand or accept a security deposit exceeding two months' rent. The deposit shall be refunded within thirty days of the tenant vacating the premises.
+## SECTION 7 [valid 2012-07-01 to present] (amended by the Sample Tenancy (Amendment) Act, 2012)
+A landlord shall not demand or accept a security deposit exceeding three months' rent. The deposit shall be refunded within thirty days of the tenant vacating the premises.
+## SECTION 12 [valid 2001-04-01 to present]
+No proceedings for eviction shall be instituted unless the landlord has given the tenant not less than thirty days' notice in writing.
+## SECTION 15 [valid 2001-04-01 to present]
+A tenant shall not sublet the premises or any part of them without the prior written consent of the landlord. Subletting in breach of this section is a ground for eviction.

@@ -1,0 +1,18 @@
+---
+doc_type: judgment
+title: Mohan Lal v. Sunita Estates (SYNTHETIC)
+court: Supreme Court (synthetic fixture)
+decided_on: 2008-02-14
+neutral_citation: 2008 SYN 5
+reporter_citations: ["(2008) 1 SYN 44"]
+---
+## HEADNOTE
+Sample Tenancy Act, 2001, Section 15 - subletting without the landlord's written consent is a ground for eviction; consent cannot be inferred from acceptance of rent alone.
+## FACTS
+The tenant allowed a third party to run a business from part of the premises. The landlord continued to accept rent from the tenant for two years and then sought eviction.
+## ARGUMENTS
+The tenant argued that the landlord's acceptance of rent amounted to implied consent. The landlord relied on the requirement of written consent in Section 15.
+## REASONING
+Section 15 requires the landlord's written consent to any subletting. Acceptance of rent from the tenant is consistent with the tenancy continuing and says nothing about the sub-tenant. Implied consent would defeat the requirement of writing.
+## HOLDING
+Subletting without written consent entitles the landlord to eviction under Section 15. Acceptance of rent does not amount to consent.

@@ -1,0 +1,50 @@
+# The real local stack, sized for the dev machine (~6 GB RAM, GTX 1650 with 4 GB VRAM):
+#   * generator: a small instruct model served by Ollama (`ollama pull qwen2.5:3b-instruct`)
+#   * embeddings + reranker: MiniLM-size sentence-transformers models on CPU, leaving the GPU to Ollama
+#   * install the extra first:  uv pip install -e ".[ml]"
+# The embedding model is pinned into the database (store_meta): switching models needs a fresh DB.
+# General-purpose English models: swap in legal-domain ones behind the same config keys.
+name: local_ollama
+seed: 1234
+
+embedding:
+  kind: sentence_transformers
+  model: sentence-transformers/all-MiniLM-L6-v2
+  dim: 384
+  device: cpu
+
+llm:
+  provider: ollama
+  model: qwen2.5:3b-instruct
+  temperature: 0.0
+  seed: 1234
+  max_tokens: 700
+  base_url: http://127.0.0.1:11434   # 127.0.0.1, not localhost: see README
+
+ingest:
+  corpus_dir: legalrag/tests/fixtures/sample_corpus
+  chunk_target_tokens: 200
+  chunk_max_tokens: 400
+  chunk_overlap_tokens: 40
+
+retrieval:
+  fused_top_k: 50
+
+rerank:
+  kind: cross_encoder
+  model: cross-encoder/ms-marco-MiniLM-L-6-v2
+  device: cpu
+  keep: 10
+
+verify:
+  kind: real
+  enabled_checks: [authority, citation_metadata, statute, claim_support, temporal]
+  min_verified_per_claim: 1
+  include_flagged: true
+  as_of: 2026-09-20
+  support_judge: llm   # the generator judges (with a verbatim quote required); lexical is the fallback
+
+eval:
+  audit_judge: lexical  # a 3B model is a weak auditor; see the audit-judge check in the report
+  recall_ks: [1, 3, 5, 10]
+  high_confidence: 0.8
